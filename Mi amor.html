@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Lauryn 💎</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        :root {
+            --rosa-pastel: #ffd6e0;
+            --rosa-claro: #ffb7c5;
+            --rosa-medio: #ff8fab;
+            --blanco: #ffffff;
+            --dorado: #e6c229;
+            --dorado-claro: #f5e6b3;
+            --negro: #333333;
+            --sombra: rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--rosa-pastel), var(--blanco));
+            color: var(--negro);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1000;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .floating-word {
+            position: fixed;
+            pointer-events: none;
+            font-size: 1.5rem;
+            color: var(--rosa-medio);
+            font-weight: bold;
+            opacity: 0;
+            animation: float-word 3s ease-out;
+            z-index: 999;
+        }
+        
+        @keyframes float-word {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+        
+        section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--rosa-medio);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px var(--sombra);
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+        }
+        
+        h3 {
+            font-size: 2.2rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        /* Sección de Bienvenida */
+        #welcome {
+            background: linear-gradient(135deg, var(--rosa-pastel), var(--blanco));
+            text-align: center;
+        }
+        
+        .welcome-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .welcome-message {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            color: var(--negro);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            color: var(--rosa-medio);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Sección de Galería */
+        #gallery {
+            background-color: var(--blanco);
+        }
+        
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 1rem 1rem 2rem 1rem;
+            box-shadow: 0 4px 8px var(--sombra);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+            width: 250px;
+            position: relative;
+        }
+        
+        .polaroid:nth-child(even) {
+            transform: rotate(2deg);
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 8px 16px var(--sombra);
+        }
+        
+        .polaroid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .polaroid-caption {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            color: var(--negro);
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Sección de Carta */
+        #letter {
+            background: linear-gradient(135deg, var(--blanco), var(--rosa-pastel));
+        }
+        
+        .letter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+            .envelope {
+        width: 150px;
+        height: 100px;
+        background-color: var(--rosa-claro);
+        margin: 0 auto 2rem;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px var(--sombra);
+        z-index: 2; /* Añadido */
+    }
+    
+    .envelope:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-left: 75px solid transparent;
+        border-right: 75px solid transparent;
+        border-top: 50px solid var(--rosa-medio);
+        transform-origin: top;
+        transform: rotateX(0deg);
+        transition: all 0.3s ease;
+        z-index: 3;
+    }
+    
+    .envelope.open:before {
+        transform: rotateX(180deg);
+    }
+    
+    .envelope:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 75px solid transparent;
+        border-right: 75px solid transparent;
+        border-bottom: 50px solid var(--rosa-claro);
+        z-index: 2;
+    }
+    
+    .letter {
+        position: relative; /* Cambiado de absolute a relative */
+        width: 90%;
+        margin: -50px auto 0; /* Añadido margen negativo para superponer */
+        background: var(--blanco);
+        padding: 1.5rem;
+        box-shadow: 0 0 5px var(--sombra);
+        transition: all 0.5s ease;
+        transform: translateY(-20px); /* Posición inicial */
+        opacity: 0;
+        z-index: 1;
+        border-radius: 5px;
+    }
+    
+    .envelope.open ~ .letter {
+        transform: translateY(0);
+        opacity: 1;
+    }
+        .letter-content {
+            display: none;
+        }
+        
+        .letter-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .letter-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+        
+        .letter-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--rosa-pastel);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .letter-btn.active {
+            background-color: var(--rosa-medio);
+        }
+        
+        /* Sección de Regalo */
+        #gift {
+            background-color: var(--blanco);
+            text-align: center;
+        }
+        
+        .gift-btn {
+            background-color: var(--dorado);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px var(--sombra);
+            margin: 2rem 0;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .gift-btn:hover {
+            background-color: var(--dorado-claro);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px var(--sombra);
+        }
+        
+        .gift-surprise {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .gift-surprise.show {
+            max-height: 1000px;
+        }
+        
+        .firework {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: firework-animation 1s ease-out;
+            z-index: 1000;
+        }
+        
+        @keyframes firework-animation {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty));
+                opacity: 0;
+            }
+        }
+        
+        /* Sección de Formulario */
+        #response {
+            background: linear-gradient(135deg, var(--rosa-pastel), var(--blanco));
+        }
+        
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--sombra);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--rosa-medio);
+            font-weight: 600;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--rosa-pastel);
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+        
+        .submit-btn {
+            background-color: var(--rosa-medio);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--rosa-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px var(--sombra);
+        }
+        
+        /* Sección Final */
+        #final {
+            background: linear-gradient(135deg, var(--blanco), var(--rosa-pastel));
+            text-align: center;
+        }
+        
+        .star {
+            font-size: 3rem;
+            cursor: pointer;
+            display: inline-block;
+            transition: all 0.3s ease;
+            color: var(--dorado);
+            margin-top: 2rem;
+        }
+        
+        .star:hover {
+            transform: scale(1.3) rotate(15deg);
+        }
+        
+        .secret-message {
+            opacity: 0;
+            font-size: 2rem;
+            color: var(--dorado);
+            text-shadow: 0 0 10px var(--dorado-claro);
+            margin-top: 1rem;
+            transition: opacity 0.3s ease;
+        }
+        
+        .star:hover + .secret-message {
+            opacity: 1;
+        }
+        
+        /* Música */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--blanco);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px var(--sombra);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .music-player:hover {
+            transform: scale(1.1);
+        }
+        
+        .music-icon {
+            font-size: 1.5rem;
+            color: var(--rosa-medio);
+        }
+        
+        /* Efecto Parallax */
+        .parallax-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .polaroid {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Música de fondo -->
+    <audio id="bg-music" loop>
+        <source src="Cumple.mp3.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+    
+    <div class="music-player" id="music-toggle">
+        <div class="music-icon">🎵</div>
+    </div>
+    
+    <!-- Sección de Bienvenida -->
+    <section id="welcome">
+        <div class="parallax-bg"></div>
+        <div class="container welcome-content">
+            <h1>Feliz Cumpleaños, Lauryn</h1>
+            <p class="welcome-message">"Tu existencia es un poema escrito por el universo, y hoy celebramos cada uno de sus versos."</p>
+            <div class="scroll-down">▼ Desliza ▼</div>
+        </div>
+    </section>
+    
+    <!-- Sección de Galería -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Nuestros Momentos</h2>
+            <p>Algunos recuerdos que atesoro en mi corazón...</p>
+            
+            <div class="gallery-container">
+                <!-- Polaroid 1 -->
+                <div class="polaroid">
+                    <img src="Lau.jpg.HEIC" alt="Lauryn">
+                    <div class="polaroid-caption">Mi razón de sonreír</div>
+                </div>
+                
+                <!-- Polaroid 2 -->
+                <div class="polaroid">
+                    <img src="Loca.jpg.HEIC" alt="Lauryn">
+                    <div class="polaroid-caption">Eres luz</div>
+                </div>
+                
+                <!-- Polaroid 3 -->
+                <div class="polaroid">
+                    <img src="Junto.jpg.HEIC" alt="Lauryn y yo">
+                    <div class="polaroid-caption">Juntos</div>
+                </div>
+                
+                <!-- Polaroid 4 -->
+                <div class="polaroid">
+                    <img src="Bahia.jpg.HEIC" alt="Momento especial">
+                    <div class="polaroid-caption">Tesoro este instante</div>
+                </div>
+            </div>
+            
+            <p>Cada foto es un tesoro que guardo con amor en mi corazón.</p>
+        </div>
+    </section>
+    
+    <!-- Sección de Carta -->
+    <section id="letter">
+        <div class="container">
+            <h2>Una carta para ti</h2>
+            
+            <div class="letter-container">
+                <div class="envelope" id="envelope"></div>
+                <div class="letter">
+                    <div class="letter-content active">
+                        <p>Querida Lauryn,</p>
+                        <p>En este día tan especial, quería tomarme un momento para decirte todo lo que siento, aunque las palabras nunca serán suficientes para expresar la magnitud de mi amor por ti.</p>
+                    </div>
+                    
+                    <div class="letter-content">
+                        <p>Desde que llegaste a mi vida, todo cobró un nuevo significado. Tus risas son la melodía más dulce que he escuchado, tu sonrisa ilumina mis días más oscuros, y tu amor es el regalo más valioso que he recibido.</p>
+                    </div>
+                    
+                    <div class="letter-content">
+                        <p>Hoy celebramos no solo tu cumpleaños, sino la maravillosa persona que eres. Eres fuerte, inteligente, compasiva y hermosa, dentro y fuera. Cada día a tu lado es una aventura que no cambiaría por nada en el mundo.</p>
+                    </div>
+                    
+                    <div class="letter-content">
+                        <p>Prometo seguir amándote en cada una de tus sonrisas, en cada lágrima, en cada logro y en cada caída. Porque contigo quiero construir un futuro lleno de amor, risas y sueños cumplidos.</p>
+                    </div>
+                    
+                    <div class="letter-content">
+                        <p>Feliz cumpleaños, mi amor. Que este año te traiga toda la felicidad que mereces, porque nadie en este mundo se merece más que tú.</p>
+                        <p>Con todo mi amor,</p>
+                        <p>💖 Juan M.</p>
+                    </div>
+                    
+                    <div class="letter-nav">
+                        <button class="letter-btn active" data-index="0"></button>
+                        <button class="letter-btn" data-index="1"></button>
+                        <button class="letter-btn" data-index="2"></button>
+                        <button class="letter-btn" data-index="3"></button>
+                        <button class="letter-btn" data-index="4"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Regalo -->
+    <section id="gift">
+        <div class="container">
+            <h2>Tu Regalo Especial</h2>
+            <p>El verdadero regalo eres tú, pero aquí va todo lo que siento...</p>
+            
+            <button class="gift-btn" id="gift-btn">Ver Regalo</button>
+            
+            <div class="gift-surprise" id="gift-surprise">
+                <p>Mi amor por ti es más grande que las palabras pueden expresar. Por eso, hoy te regalo:</p>
+                <ul style="text-align: left; max-width: 500px; margin: 1rem auto;">
+                    <li>💝 Promesas eternas de amor</li>
+                    <li>🌹 Un millón de besos por darte</li>
+                    <li>✨ Todos mis sueños a tu lado</li>
+                    <li>🤗 Abrazos cuando los necesites</li>
+                    <li>😊 Paciencia y comprensión siempre</li>
+                    <li>❤️ Y mi corazón, para siempre</li>
+                </ul>
+                <p>Espero que aceptes este regalo que viene con todo mi cariño.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Formulario -->
+    <section id="response">
+        <div class="container">
+            <h2>¿Te gustó tu regalo?</h2>
+            
+            <div class="form-container">
+                <form id="response-form">
+                    <div class="form-group">
+                        <label for="message">Déjame un mensajito:</label>
+                        <textarea id="message" name="message" placeholder="Escribe aquí lo que quieras..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar amor</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección Final -->
+    <section id="final">
+        <div class="container">
+            <h2>"Si el amor tuviera nombre, el tuyo sería el primero que el universo pronunciaría."</h2>
+            <p>Gracias por ser tú, por existir y por iluminar mi vida.</p>
+            
+            <div class="star">⭐</div>
+            <div class="secret-message">Te amo, Lauryn</div>
+        </div>
+    </section>
+    
+    <script>
+        // Corazones flotantes
+        function createFloatingHearts() {
+            const colors = ['#ff8fab', '#ffb7c5', '#ffd6e0', '#e6c229'];
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'floating-heart';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+        
+        setInterval(createFloatingHearts, 300);
+        
+        // Palabras flotantes al hacer scroll
+        const floatingWords = ['Amor', 'Luz', 'Eres única', 'Gracias', 'Hermosa', 'Especial', 'Perfecta', 'Mi vida'];
+        
+        window.addEventListener('scroll', () => {
+            if (Math.random() > 0.9) {
+                const word = document.createElement('div');
+                word.className = 'floating-word';
+                word.textContent = floatingWords[Math.floor(Math.random() * floatingWords.length)];
+                word.style.left = Math.random() * window.innerWidth + 'px';
+                word.style.top = window.scrollY + Math.random() * 300 + 'px';
+                document.body.appendChild(word);
+                
+                setTimeout(() => {
+                    word.remove();
+                }, 3000);
+            }
+        });
+        
+        // Música de fondo
+        const musicToggle = document.getElementById('music-toggle');
+        const bgMusic = document.getElementById('bg-music');
+        
+        musicToggle.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicToggle.innerHTML = '<div class="music-icon">🔊</div>';
+            } else {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<div class="music-icon">🔇</div>';
+            }
+        });
+        
+        // Carta interactiva
+        const envelope = document.getElementById('envelope');
+        const letterContents = document.querySelectorAll('.letter-content');
+        const letterBtns = document.querySelectorAll('.letter-btn');
+        
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('open');
+        });
+        
+        letterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const index = btn.getAttribute('data-index');
+                
+                letterContents.forEach(content => content.classList.remove('active'));
+                letterContents[index].classList.add('active');
+                
+                letterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+        
+        // Regalo sorpresa
+        const giftBtn = document.getElementById('gift-btn');
+        const giftSurprise = document.getElementById('gift-surprise');
+        
+        giftBtn.addEventListener('click', () => {
+            giftSurprise.classList.toggle('show');
+            
+            if (giftSurprise.classList.contains('show')) {
+                createFireworks();
+                giftBtn.textContent = 'Ocultar Regalo';
+            } else {
+                giftBtn.textContent = 'Ver Regalo';
+            }
+        });
+        
+        // Fuegos artificiales
+        function createFireworks() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.left = Math.random() * window.innerWidth + 'px';
+                    firework.style.top = Math.random() * window.innerHeight + 'px';
+                    firework.style.backgroundColor = `hsl(${Math.random() * 60 + 330}, 100%, ${Math.random() * 30 + 50}%)`;
+                    firework.style.setProperty('--tx', `${Math.random() * 200 - 100}px`);
+                    firework.style.setProperty('--ty', `${Math.random() * 200 - 100}px`);
+                    document.body.appendChild(firework);
+                    
+                    setTimeout(() => {
+                        firework.remove();
+                    }, 1000);
+                }, i * 100);
+            }
+        }
+        
+        // Formulario
+        const responseForm = document.getElementById('response-form');
+        
+        responseForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = document.getElementById('message').value;
+            
+            if (message.trim()) {
+                alert('Gracias por tu mensaje, mi amor. Lo guardaré en mi corazón. 💖\n\n(Para enviarlo realmente, podrías copiarlo y mandármelo por WhatsApp o mensaje)');
+                document.getElementById('message').value = '';
+            } else {
+                alert('Por favor escribe un mensajito lindo 🥺');
+            }
+        });
+        
+        // Efecto parallax
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelector('.parallax-bg').style.transform = `translate(-${x * 20}px, -${y * 20}px)`;
+        });
+    </script>
+</body>
+</html>
